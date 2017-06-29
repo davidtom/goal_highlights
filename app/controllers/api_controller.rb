@@ -62,7 +62,13 @@ class APIController
   def self.scan
     # View post stream and store valid posts in database
     socket.post_stream do |post|
-      #TODO: fill in Posts table. Current thinking:
+      #TODO:
+      # - Finish database setup (maybe just association between posts and domain?)
+      # - fill in Posts table. Current thinking:
+      #  - create a method that makes a hash out of desired post info
+      #      the keys of that hash would need to match column names in posts table
+      #  - use that method to pass data into database from this scan method
+      # - Set up dynamic page (application_controller? or new controller??)
       if meets_goal_criteria(post.link_flair_text, post.title)
         #enter into db
       else
