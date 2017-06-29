@@ -1,7 +1,7 @@
 class PlayerController < ApplicationController
 
-  get "/players" do
-    erb :"players/index"
+  get "/teams" do
+    erb :"teams/index.html"
   end
 
 end

@@ -1,3 +1,6 @@
+**SETUP**
+Still struggling, but see here for possible help:https://defman.me/blog/sinatra-app/
+
 **Post title criteria to signify it is a goal highlight:**
 - Has "media" flair
 - Has ' in it (56') OR has (#-#) in it OR has penalty (for penalty shoot outs? maybe "shoot out"?)

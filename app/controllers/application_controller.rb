@@ -6,6 +6,6 @@ class ApplicationController < Sinatra::Base
   set :public_dir, "public"
 
   get "/" do
-    erb :index
+    erb :"index.html"
   end
 end

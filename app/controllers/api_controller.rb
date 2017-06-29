@@ -1,10 +1,5 @@
 class APIController
 
-  # Create arrays for post criteria to check for
-  @@flair = ["Media"]
-  # make sure all are downcase!
-  @@goal_indicators = ["'", "penalty"] #regex for (#-#)
-
   def self.session
     Redd.it(
       user_agent: "Goal_Highlights",
@@ -28,15 +23,53 @@ class APIController
   end
 
   def self.valid_flair?(flair)
-    @@flair.include?(flair) ? true : false
+    #Check if post flair indicates it is media (array in case it expands)
+    ["Media"].include?(flair) ? true : false
   end
 
-  def self.collect_goals
-    # socket.post_stream do |post|
-      # if post.title
-      # end
-        #word is array
-        # words.any? { |word| sentence.include?(word) }
+  def self.has_minute?(post_title)
+    # Search for and return a ##' pattern in the title (0 or 1 space allowed)
+    post_title.scan(/[0-9]+'/).any? || post_title.scan(/[0-9]+ '/).any?? true : false
+  end
+
+  def self.has_score?(post_title)
+    # Search for and return everything between and including ( and )
+    post_title.scan(/\(.+\)/).any? ? true : false
+  end
+
+  def self.has_penalty?(post_title)
+    # Search for and return any instance of penalty in down-cased post title
+    post_title.downcase.scan(/penalty/).any? ? true : false
+  end
+
+  def self.meets_goal_criteria(flair, post_title)
+    #combines methods above to check all criteria that indicate a post is a
+    # goal highlight
+    t = post_title
+    valid_flair?(flair) && (has_minute?(t) || has_score?(t) || has_penalty?(t))
+  end
+
+  def self.test_scan
+    #View post stream and verify that #meets_goal_criteria is working correctly
+    socket.post_stream do |post|
+      puts post.title
+      puts post.link_flair_text
+      puts meets_goal_criteria(post.link_flair_text, post.title)
+      puts "----------"
+    end
+  end
+
+  def self.scan
+    # View post stream and store valid posts in database
+    socket.post_stream do |post|
+      #TODO: fill in Posts table. Current thinking:
+      if meets_goal_criteria(post.link_flair_text, post.title)
+        #enter into db
+      else
+        #ignore
+      end
+      #
+    end
   end
 
 end
