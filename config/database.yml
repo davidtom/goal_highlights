@@ -1,2 +1,2 @@
 adapter: 'sqlite3'
-database: 'db/goalhighlights.db'
+# database: 'db/goalhighlights.db'

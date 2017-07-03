@@ -57,6 +57,7 @@ class APIController
       if meets_goal_criteria(post.link_flair_text, post.title)
         highlight = Highlight.create(Highlight.create_assignment_hash(post))
         highlight.domain = Domain.find_or_create_by(name: post.domain)
+        highlight.save
       else
         #no action
       end

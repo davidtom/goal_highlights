@@ -17,7 +17,7 @@ require_relative "../spec/exploratory/api_communicator.rb"
 # Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
 
 configure :development do
-  set :database, 'sqlite3:db/database.db'
+  set :database, 'sqlite3:db/goal_highlights.db'
 end
 
 # connection_details = YAML::load(File.open('config/database.yml'))
