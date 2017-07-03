@@ -23,6 +23,8 @@ class Highlight < ActiveRecord::Base
   belongs_to :domain
   belongs_to :player
 
+  validates :title, uniqueness: true
+
   def self.create_assignment_hash(post)
     {
       title: post.title,
@@ -35,16 +37,5 @@ class Highlight < ActiveRecord::Base
       created: post.created,
       created_utc: post.created_utc
     }
-  end
-
-  def self.create_or_ignore(assignment_hash)
-    #check if post title is in database already. If no, create new row. if yes,
-    # return the matching row (so api_controller#scan doesn't break)
-    highlight = self.find_by(title: assignment_hash[:title])
-    if highlight.nil?
-      self.create(assignment_hash)
-    else
-      highlight
-    end
   end
 end

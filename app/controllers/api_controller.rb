@@ -55,13 +55,12 @@ class APIController
     # Monitor post stream and store valid posts in database
     socket.post_stream do |post|
       if meets_goal_criteria(post.link_flair_text, post.title)
-        assignment_hash = Highlight.create_assignment_hash(post)
-        highlight = Highlight.create_or_ignore(assignment_hash).tap do |h|
-          h.domain = Domain.find_or_create_by(name: post.domain)
-          h.save
+        Highlight.new(Highlight.create_assignment_hash(post)).tap do |h|
+          #if post passes uniqueness validation, save and assign foreign_keys
+          if h.save
+            h.domain = Domain.find_or_create_by(name: post.domain)
+          end
         end
-      else
-        #no action
       end
     end
   end
