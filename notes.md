@@ -1,3 +1,7 @@
+##TODO##
+- clean up environment, rakefile, etc. once app is working
+
+
 ###Think about controllers and structure:
 - what the homepage controller should be called (if I even want a homepage)
       - https://stackoverflow.com/questions/786535/naming-the-root-controller

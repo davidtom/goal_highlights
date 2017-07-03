@@ -2,10 +2,10 @@
 #
 # Table name: domains
 #
-#  id          :integer          not null, primary key
-#  domain_name :string
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Domain < ActiveRecord::Base

@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20170702235719) do
     t.text     "secure_media_embed"
     t.integer  "created"
     t.integer  "created_utc"
-    t.datetime "date_indexed"
     t.integer  "domain_id"
     t.integer  "player_id"
     t.datetime "created_at"

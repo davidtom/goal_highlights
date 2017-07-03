@@ -10,7 +10,6 @@ class CreateHighlights < ActiveRecord::Migration
       t.text :secure_media_embed
       t.integer :created
       t.integer :created_utc
-      t.datetime :date_indexed
       t.integer :domain_id
       t.integer :player_id
       t.timestamps

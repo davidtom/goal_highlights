@@ -14,14 +14,6 @@ class APIController
     session.subreddit("soccer")
   end
 
-  def self.stream_posts_title_flair
-    socket.post_stream do |post|
-      puts post.title
-      puts post.link_flair_text
-      puts "****************************************"
-    end
-  end
-
   def self.valid_flair?(flair)
     #Check if post flair indicates it is media (array in case it expands)
     ["Media"].include?(flair) ? true : false
@@ -44,8 +36,7 @@ class APIController
   end
 
   def self.meets_goal_criteria(flair, post_title)
-    #combines methods above to check all criteria that indicate a post is a
-    # goal highlight
+    #combines methods above to check all criteria that indicate a post is a goal highlight
     t = post_title
     valid_flair?(flair) && (has_minute?(t) || has_score?(t) || has_penalty?(t))
   end
@@ -61,21 +52,14 @@ class APIController
   end
 
   def self.scan
-    # View post stream and store valid posts in database
+    # Monitor post stream and store valid posts in database
     socket.post_stream do |post|
-      #TODO:
-      # - Finish database setup (maybe just association between posts and domain?)
-      # - fill in Posts table. Current thinking:
-      #  - create a method that makes a hash out of desired post info
-      #      the keys of that hash would need to match column names in posts table
-      #  - use that method to pass data into database from this scan method
-      # - Set up dynamic page (application_controller? or new controller??)
       if meets_goal_criteria(post.link_flair_text, post.title)
-        #enter into db
+        highlight = Highlight.create(Highlight.create_assignment_hash(post))
+        highlight.domain = Domain.find_or_create_by(name: post.domain)
       else
-        #ignore
+        #no action
       end
-      #
     end
   end
 
