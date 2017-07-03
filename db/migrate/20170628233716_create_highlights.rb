@@ -12,6 +12,7 @@ class CreateHighlights < ActiveRecord::Migration
       t.integer :created_utc
       t.datetime :date_indexed
       t.integer :domain_id
+      t.integer :player_id
       t.timestamps
     end
   end

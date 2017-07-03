@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20170702235719) do
 
   create_table "domains", force: :cascade do |t|
-    t.string   "domain_name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170702235719) do
     t.integer  "created_utc"
     t.datetime "date_indexed"
     t.integer  "domain_id"
+    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

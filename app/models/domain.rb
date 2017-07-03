@@ -9,5 +9,5 @@
 #
 
 class Domain < ActiveRecord::Base
-
+  has_many :highlights
 end
