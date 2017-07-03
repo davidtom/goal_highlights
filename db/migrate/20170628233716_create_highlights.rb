@@ -1,6 +1,6 @@
-class CreatePosts < ActiveRecord::Migration
+class CreateHighlights < ActiveRecord::Migration
   def change
-    create_table :posts do |t|
+    create_table :highlights do |t|
       t.string :title
       t.string :permalink
       t.string :url
@@ -12,6 +12,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :created_utc
       t.datetime :date_indexed
       t.integer :domain_id
+      t.timestamps
     end
   end
 end

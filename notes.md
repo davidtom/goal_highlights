@@ -1,9 +1,16 @@
-**SETUP**
-Still struggling, but see here for possible help:https://defman.me/blog/sinatra-app/
+###Think about controllers and structure:
+- what the homepage controller should be called (if I even want a homepage)
+      - https://stackoverflow.com/questions/786535/naming-the-root-controller
+      - "I often make two controllers for interactions with things that aren't the usual REST stuff: 'welcome' and 'dashboard.' The welcome controller is mapped to my site's root, and the 'dashboard' controller is similar, but for logged in users."
+      - This is probably how I should do it!
+- **Map out RESTful routes for everything** - this should be adhered to to make sure
+  my structure is coherent!!
+###
 
-**Post title criteria to signify it is a goal highlight:**
-- Has "media" flair
-- Has ' in it (56') OR has (#-#) in it OR has penalty (for penalty shoot outs? maybe "shoot out"?)
+###FIX FOLLOWING CATEGORIZATION ISSUE:
+Team 2018 (Команда 2018) | 2018 World Cup Song
+Media
+true
 
 
 **Post number:**

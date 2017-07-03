@@ -1,4 +1,6 @@
 require_relative "./config/environment"
 
-use PlayerController
+use HomeController
+use HighlightsController
+use TeamsController
 run ApplicationController

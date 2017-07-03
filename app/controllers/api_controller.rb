@@ -34,7 +34,8 @@ class APIController
 
   def self.has_score?(post_title)
     # Search for and return everything between and including ( and )
-    post_title.scan(/\(.+\)/).any? ? true : false
+    post_title.scan(/\([0-9].+\)/).any? ? true : false
+
   end
 
   def self.has_penalty?(post_title)

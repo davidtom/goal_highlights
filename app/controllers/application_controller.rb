@@ -5,7 +5,4 @@ class ApplicationController < Sinatra::Base
   set :views, "./app/views"
   set :public_dir, "public"
 
-  get "/" do
-    erb :"index.html"
-  end
 end

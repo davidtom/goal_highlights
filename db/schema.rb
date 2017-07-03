@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629021553) do
+ActiveRecord::Schema.define(version: 20170702235719) do
 
   create_table "domains", force: :cascade do |t|
-    t.string "domain_name"
+    t.string   "domain_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "highlights", force: :cascade do |t|
     t.string   "title"
     t.string   "permalink"
     t.string   "url"
@@ -29,6 +31,28 @@ ActiveRecord::Schema.define(version: 20170629021553) do
     t.integer  "created_utc"
     t.datetime "date_indexed"
     t.integer  "domain_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "player_teams", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
