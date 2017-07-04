@@ -47,6 +47,10 @@ class Highlight < ActiveRecord::Base
     DateTime.strptime("#{utc_integer}",'%s').to_date
   end
 
+  def self.utc_to_time(utc_integer)
+    DateTime.strptime("#{utc_integer}",'%s').to_time
+  end
+
   def self.all_group_and_order_by_date
     #TODO MAKE THIS MORE DESCRIPTIVE
     #Sort goals in ascending order by 'created_utc'; group by created_at.to_date

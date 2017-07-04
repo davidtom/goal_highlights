@@ -11,6 +11,7 @@ body {
   width: 100%;
   height: 40px;
   background-color: lightblue;
+  padding: 3px 0; /*adjust this to fix vertical alignment/centering*/
   text-align: center;
   font-size: 24px;
 }
@@ -38,11 +39,18 @@ body {
   font-size: 48px;
 }
 
-.highlight-date-wrapper{
+.highlight-date-wrapper {
   width: 600px;
   margin: 0 auto;
   background: lightblue;
   position: relative;
+}
+
+.highlight-details {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  text-align: left;
 }
 
 footer {

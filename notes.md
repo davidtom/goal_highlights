@@ -1,4 +1,6 @@
 ##TODO##
+- Make sure domains are being saved! I think adding h.save to APIcontroller line
+ 67 should fix the issue
 - incorporate players into database; use apis to match
 - create data flow to be alerted when unmatched players and teams are added
 - seed some teams myself from api
