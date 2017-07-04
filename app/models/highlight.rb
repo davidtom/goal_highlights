@@ -43,25 +43,16 @@ class Highlight < ActiveRecord::Base
     iframe_string = self.media_embed.scan(/<iframe.+<\/iframe>/)[0].gsub("\\","")
   end
 
-  def self.sort_day_and_time(hash)
-    #hash must have Dates as keys and highlight instances as values
-    #sort keys/Dates ascending; sort within keys/Dates by time ascending
-
-    # TODO: THIS IS WRONG!!! SORT VALUE ARRAY DESCENDING; THEN SORT KEYS DESCENDING
-    time_sort = hash.sort_by{|date, highlight| highlight[0].created_utc}.to_h
-    date_sort = time_sort.sort_by{|date, highlight| date}.reverse.to_h
-  end
-
-  def self.group_all_by_date
-    self.all.each_with_object({}) do |highlight, goals_by_day|
+  def self.all_group_and_order_by_date
+    #TODO MAKE THIS MORE DESCRIPTIVE
+    #Sort goals in ascending order by 'created_utc'; group by created_at.to_date
+    #Returns a hash: {created_at.to_date: [highlights]} -sorted asc
+    self.order("created_utc ASC").each_with_object({}) do |highlight, goals_by_day|
       date = highlight.created_at.to_date
       goals_by_day[date] = [] if goals_by_day[date].nil?
       goals_by_day[date] << highlight
-    end
+    end#TODO NEED TO ADD SORT HERE BY KEY
+
   end
 
-  def self.group_and_sort_all
-    grouped_hash = group_all_by_date
-    sort_day_and_time(grouped_hash)
-  end
 end

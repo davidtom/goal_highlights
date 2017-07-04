@@ -7,12 +7,15 @@
   <body>
     <center>
     <h1>Highlights</h1>
-    <% @highlights.each do |highlight| %>
-      <h3><%= highlight.title %></h3>
-      <%= highlight.clean_media_embed %>
-      <br>
-      <a href=<%= highlight.url %> target="_blank">View Source Media</a> |
-      <a href=<%= "http://www.reddit.com" + highlight.permalink %> target="_blank">View Reddit Post</a>
+    <% @highlights.each do |date, highlights| %>
+      <h2><%= date.to_s %></h2>
+      <% highlights.each do |highlight| %>
+        <h3><%= highlight.title %></h3>
+        <%= highlight.clean_media_embed %>
+        <br>
+        <a href=<%= highlight.url %> target="_blank">View Source Media</a> |
+        <a href=<%= "http://www.reddit.com" + highlight.permalink %> target="_blank">View Reddit Post</a>
+      <% end %>
     <% end %>
     </center>
   </body>
