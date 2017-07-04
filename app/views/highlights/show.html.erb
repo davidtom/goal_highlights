@@ -17,8 +17,10 @@
             <p><b>Source media:</b> <a href= <%=@highlight.url%> ><%= @highlight.domain.name %></a></p>
             <p><b>Reddit post:</b> <a href= <%="http://www.reddit.com"+@highlight.permalink%> ><%= "view comments" %></a></p>
           </div> <!-- highlight-details -->
-          <input type="submit" value="Return to All Highlights">
-          <br>
+          <form class="" action="/highlights" method="get">
+              <input type="submit" value="Return to All Highlights">
+          </form>
+          <p></p><!-- bootleg way to add margin below button... -->
         </div> <!-- highlight-wrapper -->
     </div><!-- content-wrapper -->
   </body>

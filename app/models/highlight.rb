@@ -48,7 +48,7 @@ class Highlight < ActiveRecord::Base
   end
 
   def self.utc_to_time(utc_integer)
-    DateTime.strptime("#{utc_integer}",'%s').to_time
+    DateTime.strptime("#{utc_integer}",'%s').strftime("%H:%M:%S")
   end
 
   def self.all_group_and_order_by_date
