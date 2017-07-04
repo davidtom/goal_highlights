@@ -64,6 +64,7 @@ class APIController
           #if post passes uniqueness validation, save and assign foreign_keys
           if h.save
             h.domain = Domain.find_or_create_by(name: post.domain)
+            h.save
           end
         end
       end
