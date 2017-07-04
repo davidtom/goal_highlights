@@ -19,20 +19,24 @@ class APIController
     ["Media"].include?(flair) ? true : false
   end
 
+  def self.remove_spaces(string)
+    string.gsub(/\s+/, '')
+  end
+
   def self.has_minute?(post_title)
-    # Search for and return a ##' pattern in the title (0 or 1 space allowed)
-    post_title.scan(/[0-9]+'/).any? || post_title.scan(/[0-9]+ '/).any?? true : false
+    # Search for and return a ##' pattern in the title
+    remove_spaces(post_title).scan(/[0-9]+'/).any? ? true : false
   end
 
   def self.has_score?(post_title)
-    # Search for and return everything between and including ( and )
-    post_title.scan(/\([0-9].+\)/).any? ? true : false
+    # Search for and return everything matching this pattern: (#-#)
+    remove_spaces(post_title).scan(/\(\d+-\d+\)/).any? ? true : false
 
   end
 
   def self.has_penalty?(post_title)
     # Search for and return any instance of penalty in down-cased post title
-    post_title.downcase.scan(/penalty/).any? ? true : false
+    remove_spaces(post_title).downcase.scan(/penalty/).any? ? true : false
   end
 
   def self.meets_goal_criteria(flair, post_title)
