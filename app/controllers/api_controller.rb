@@ -24,8 +24,9 @@ class APIController
   end
 
   def self.has_minute?(post_title)
-    # Search for and return a ##' pattern in the title
-    remove_spaces(post_title).scan(/[0-9]+'/).any? ? true : false
+    # Search for and return a ###' pattern in the title; forces 3 digits to
+    #  avoid matching years (e.g. 1999's Copa America)
+    remove_spaces(post_title).scan(/\s[0-9]{1,3}'/).any? ? true : false
   end
 
   def self.has_score?(post_title)

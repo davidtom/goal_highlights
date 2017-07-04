@@ -1,5 +1,5 @@
 ##TODO##
-- incorporate players into database; used apis to match
+- incorporate players into database; use apis to match
 - create data flow to be alerted when unmatched players and teams are added
 - seed some teams myself from api
 - create pages to add/edit players and teams
