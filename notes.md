@@ -1,11 +1,9 @@
 ##TODO##
-- clean up environment, rakefile, etc. once app is working
-- incorporate players into datebase; used apis to match
+- incorporate players into database; used apis to match
 - create data flow to be alerted when unmatched players and teams are added
 - seed some teams myself from api
 - create pages to add/edit players and teams
 - create log files to run apicontroller
-- improve layout (slightly - a little goes a long way)
 
 
 ###Think about controllers and structure:

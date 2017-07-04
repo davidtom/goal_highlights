@@ -3,23 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Goal Highlights</title>
-    <!--  Uncomment these links when I create the style sheet -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <!--  Navigation Bar-->
-    <div class="navigation-bar">
-      <a href="/">Home</a>
-      <a href="/highlights">Highlights</a>
-      <a href="/teams">Teams</a>
-      <a href="/players">Players</a>
-    </div>
+    <header>
+      <div class = "wrapper">
+        <div id="logo">
+          <h1>Soccer Goal Highlights</h1>
+        </div>
+        <nav>
+          <div id="nav-wrapper">
+            <a href="/">Home</a>
+            <a href="/highlights">Highlights</a>
+            <a href="/teams">Teams</a>
+            <a href="/players">Players</a>
+          </div>
+        </nav>
+      </div> <!-- .wrapper -->
+    </header>
 
-    <!--  Individual Page Content -->
-    <%= yield %>
+      <!--  Individual Page Content -->
+      <%= yield %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <footer>
+    <!-- TBD -->
+  </footer>
+
   </body>
 </html>

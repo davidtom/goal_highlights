@@ -2,21 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Highlights</title>
   </head>
   <body>
-    <center>
-    <h1>Highlights</h1>
-    <% @highlights.each do |date, highlights| %>
-      <h2><%= date.to_s %></h2>
-      <% highlights.each do |highlight| %>
-        <h3><%= highlight.title %></h3>
-        <%= highlight.clean_media_embed %>
-        <br>
-        <a href=<%= highlight.url %> target="_blank">View Source Media</a> |
-        <a href=<%= "http://www.reddit.com" + highlight.permalink %> target="_blank">View Reddit Post</a>
+    <div class="content-wrapper">
+      <h1 id="all-highlights-header">All Highlights</h1>
+      <% @highlights.each do |date, highlights| %>
+        <div class="highlight-wrapper">
+          <div class="highlight-date-wrapper">
+          <h2><%= date.to_s %></h2>
+          </div>
+          <% highlights.each do |highlight| %>
+          <h3><%= highlight.title %></h3>
+          <%= highlight.clean_media_embed %>
+          <br>
+          <a href=<%= highlight.url %> target="_blank">View Source Media</a> |
+          <a href=<%= "http://www.reddit.com" + highlight.permalink %> target="_blank">View Reddit Post</a>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
-    </center>
+    </div><!-- content-wrapper -->
   </body>
 </html>
