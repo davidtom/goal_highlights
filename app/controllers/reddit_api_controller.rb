@@ -1,4 +1,4 @@
-class APIController
+class RedditAPIController
 
   def self.session
     Redd.it(

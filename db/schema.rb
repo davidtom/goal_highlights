@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702235719) do
+ActiveRecord::Schema.define(version: 20170704225716) do
 
   create_table "domains", force: :cascade do |t|
     t.string   "name"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 20170702235719) do
     t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "team_url"
+    t.string   "fixtures_url"
+    t.string   "players_url"
+    t.string   "shortname"
+    t.string   "code"
   end
 
 end

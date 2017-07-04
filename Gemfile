@@ -11,6 +11,7 @@ gem 'require_all'
 gem "redd"
 gem "annotate"
 gem "whenever"
+gem 'football__data'
 
 group :development do
   gem 'shotgun'
