@@ -47,12 +47,14 @@ class Highlight < ActiveRecord::Base
     #TODO MAKE THIS MORE DESCRIPTIVE
     #Sort goals in ascending order by 'created_utc'; group by created_at.to_date
     #Returns a hash: {created_at.to_date: [highlights]} -sorted asc
-    self.order("created_utc ASC").each_with_object({}) do |highlight, goals_by_day|
+    sorted_hash = {}
+    self.order("created_utc ASC").each do |highlight|
       date = highlight.created_at.to_date
-      goals_by_day[date] = [] if goals_by_day[date].nil?
-      goals_by_day[date] << highlight
-    end#TODO NEED TO ADD SORT HERE BY KEY
-
+      sorted_hash[date] = [] if sorted_hash[date].nil?
+      sorted_hash[date] << highlight
+    end
+    #sort hash by keys; descending order by date
+    Hash[sorted_hash.sort_by{|date, highlights| date}.reverse]
   end
 
 end
