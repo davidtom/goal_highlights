@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Highlights</title>
+    <title>View All Highlights</title>
   </head>
   <body>
     <div class="content-wrapper">
@@ -11,15 +11,16 @@
         <div class="highlight-wrapper">
           <div class="highlight-date-wrapper">
           <h2><%= date.to_s %></h2>
-          </div>
+          </div><!-- highlight-date-wrapper -->
           <% highlights.each do |highlight| %>
           <h3><%= highlight.title %></h3>
           <%= highlight.clean_media_embed %>
           <br>
+          <a href=<%= "/highlights/#{highlight.id}" %>> View Details </a> |
           <a href=<%= highlight.url %> target="_blank">View Source Media</a> |
           <a href=<%= "http://www.reddit.com" + highlight.permalink %> target="_blank">View Reddit Post</a>
           <% end %>
-        </div>
+        </div> <!-- highlight-wrapper -->
       <% end %>
     </div><!-- content-wrapper -->
   </body>

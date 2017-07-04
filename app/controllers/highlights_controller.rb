@@ -5,4 +5,13 @@ class HighlightsController < ApplicationController
     erb :"highlights/index.html"
   end
 
+  get "/highlights/new" do
+    #TBD
+  end
+
+  get "/highlights/:id" do
+    @highlight = Highlight.find(params[:id])
+    erb :"/highlights/show.html"
+  end
+
 end
