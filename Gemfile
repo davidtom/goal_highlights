@@ -10,6 +10,7 @@ gem "thin"
 gem 'require_all'
 gem "redd"
 gem "annotate"
+gem "whenever"
 
 group :development do
   gem 'shotgun'

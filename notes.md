@@ -3,7 +3,8 @@
 - create data flow to be alerted when unmatched players and teams are added
 - seed some teams myself from api
 - create pages to add/edit players and teams
-- create log files to run apicontroller
+- create log files to run apicontroller.scan (first need to figure out how to
+  scan a listing, not a stream)
 
 
 ###Think about controllers and structure:
