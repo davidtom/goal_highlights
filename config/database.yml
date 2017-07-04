@@ -1,1 +1,2 @@
 adapter: 'sqlite3'
+database: 'db/goal_highlights.db'
