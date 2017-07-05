@@ -1,15 +1,12 @@
 ##TODO##
-- FIX ISSUE WITH football__data API AND config.ru
 - incorporate players into database; use apis to match DONT DO THIS - will take
 forever! Figure out another way to create them way to get players (scrape espn
   maybe??), or drop them entirely
 - create data flow to be alerted when unmatched players and teams are added
-- create pages to add/edit players and teams
+- create page to add/edit teams
+- create page to add/edit players
 - create log files to run apicontroller.scan (first need to figure out how to
   scan a listing, not a stream)
-- Enter team 1223 (football-data api) manually. Got following error:
-    Data: {"error"=>"Parameter 'id' is expected to be an integer in a specified range."}
--
 
 
 ###Think about controllers and structure:
