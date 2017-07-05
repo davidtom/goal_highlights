@@ -19,7 +19,7 @@ class Team < ActiveRecord::Base
   has_many :players, through: :player_teams
 
   validates :name, uniqueness: true
-  validates :shortname, uniqueness: true
+  validates :team_url, uniqueness: true
 
   def self.create_assignment_hash(data)
     {
