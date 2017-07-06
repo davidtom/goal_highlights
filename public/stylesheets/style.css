@@ -6,16 +6,20 @@ body {
 div #logo {
   text-align: center;
   overflow: auto;
+  width:90%;
+  margin: 0 auto;
 }
 
 #logo img {
   width: 100px;
   height: 100px;
+  float: left;
 }
 
 #logo h1 {
+  float: left;
   font-size: 72px;
-  left: 10px;
+  margin-left: 10px;
   right: 0px;
   bottom: 10px;
   color: black;
@@ -68,6 +72,27 @@ div #logo {
   margin: 0 auto;
   position: relative;
   text-align: left;
+}
+
+table {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+th, td {
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+}
+
+tr:hover {background-color: #f5f5f5}
+
+img.team-page {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
 }
 
 footer {

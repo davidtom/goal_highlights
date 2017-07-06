@@ -1,4 +1,5 @@
 ##TODO##
+- last team id checked was 2871
 - incorporate players into database; use apis to match DONT DO THIS - will take
 forever! Figure out another way to create them way to get players (scrape espn
   maybe??), or drop them entirely
@@ -7,6 +8,8 @@ forever! Figure out another way to create them way to get players (scrape espn
 - create page to add/edit players
 - create log files to run apicontroller.scan (first need to figure out how to
   scan a listing, not a stream)
+- Add a rating system to each goal (put top goal on front page?)
+- figure out what to do for teams that don't have a crest (id 27 is one)
 
 
 ###Think about controllers and structure:

@@ -7,9 +7,22 @@
   <body>
     <div class="content-wrapper">
       <h1 id="index-header">All Teams</h1>
-      <% @teams.each do |team| %>
-      <p><%= team.name %></p>
-      <% end %>
+      <table>
+        <tr>
+          <th>Team Name</th>
+          <th>Short Name</th>
+          <th>Code</th>
+        </tr>
+        <%  @teams.each do |team| %>
+        <tr>
+          <td><a href=<%="/teams/#{team.id}"%>><%= team.name %></a></td>
+          <td><%= team.shortname %></td>
+          <td><%= team.code %></td>
+        </tr>
+        <% end %>
+
+
+      </table>
     </div><!-- content-wrapper -->
   </body>
 </html>
