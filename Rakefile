@@ -11,3 +11,9 @@ end
 task :run do
   sh "ruby bin/run"
 end
+
+task :scan_new do
+  RedditAPIController.scan_new
+  log_text = "#{DateTime.now} | RedditAPIController.scan_new completed successfully"
+  puts log_text
+end

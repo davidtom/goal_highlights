@@ -46,6 +46,19 @@ class RedditAPIController
     valid_flair?(flair) && (has_minute?(t) || has_score?(t) || has_penalty?(t))
   end
 
+  def self.create_highlight_if_valid(post)
+    if meets_goal_criteria(post.link_flair_text, post.title)
+      Highlight.new(Highlight.create_assignment_hash(post)).tap do |h|
+        #if post passes uniqueness validation, save and assign foreign_keys
+        if h.save
+          #update this to use build at some point
+          h.domain = Domain.find_or_create_by(name: post.domain)
+          h.save
+        end
+      end
+    end
+  end
+
   def self.test_scan
     #View post stream and verify that #meets_goal_criteria is working correctly
     socket.post_stream do |post|
@@ -56,6 +69,12 @@ class RedditAPIController
     end
   end
 
+  def self.scan_new
+    socket.new.each do |post|
+      create_highlight_if_valid(post)
+    end
+  end
+
   def self.scan
     # Monitor post stream and store valid posts in database
     socket.post_stream do |post|
@@ -63,6 +82,7 @@ class RedditAPIController
         Highlight.new(Highlight.create_assignment_hash(post)).tap do |h|
           #if post passes uniqueness validation, save and assign foreign_keys
           if h.save
+            #update this to use build at some point
             h.domain = Domain.find_or_create_by(name: post.domain)
             h.save
           end

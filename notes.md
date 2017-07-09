@@ -15,6 +15,8 @@ forever! Figure out another way to create them way to get players (scrape espn
 - refactor scan to be a scan method and an add goal method
 - Manually create highlight for: https://www.reddit.com/r/soccer/comments/6lmg7u/england_u19_10_netherlands_u19_brereton_84_euro/
 - incorporate strong params!
+- Use .build in RedditAPIController to associate a domain with a highlight
+- Clean up code in RedditAPIController!! split out methods, remove redundancy
 
 
 ###Think about controllers and structure:

@@ -19,4 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, '/log/cron_log.log'
+set :output, '/Users/dtomczyk/Documents/ProgrammingProjects/Goal_Highlights/log/cron_log.log'
+
+every 1.hour do
+  rake "scan_new"
+end
