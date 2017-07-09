@@ -40,7 +40,13 @@ class Highlight < ActiveRecord::Base
 
   def clean_media_embed
     #Slice out text between <iframe> tags and remove backlashes
-    iframe_string = self.media_embed.scan(/<iframe.+<\/iframe>/)[0].gsub("\\","")
+    # iframe_string = self.media_embed.scan(/<iframe.+<\/iframe>/)[0].gsub("\\","")
+    iframe_string = self.media_embed.scan(/<iframe.+<\/iframe>/)[0]
+    if !iframe_string.nil?
+      iframe_string.gsub("\\","")
+    else
+      "Media embed not found - view highlight from source (link below)"
+    end
   end
 
   def self.utc_to_date(utc_integer)

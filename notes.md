@@ -1,5 +1,7 @@
 ##TODO##
 - last team id checked was 2871
+- paginate highlights page!
+- look into Oembed API to embed videos from just a url
 - incorporate players into database; use apis to match DONT DO THIS - will take
 forever! Figure out another way to create them way to get players (scrape espn
   maybe??), or drop them entirely
@@ -10,6 +12,9 @@ forever! Figure out another way to create them way to get players (scrape espn
   scan a listing, not a stream)
 - Add a rating system to each goal (put top goal on front page?)
 - figure out what to do for teams that don't have a crest (id 27 is one)
+- refactor scan to be a scan method and an add goal method
+- Manually create highlight for: https://www.reddit.com/r/soccer/comments/6lmg7u/england_u19_10_netherlands_u19_brereton_84_euro/
+- incorporate strong params!
 
 
 ###Think about controllers and structure:
@@ -17,15 +22,6 @@ forever! Figure out another way to create them way to get players (scrape espn
       - https://stackoverflow.com/questions/786535/naming-the-root-controller
       - "I often make two controllers for interactions with things that aren't the usual REST stuff: 'welcome' and 'dashboard.' The welcome controller is mapped to my site's root, and the 'dashboard' controller is similar, but for logged in users."
       - This is probably how I should do it!
-- **Map out RESTful routes for everything** - this should be adhered to to make sure
-  my structure is coherent!!
-###
-
-###FIX FOLLOWING CATEGORIZATION ISSUE:
-Team 2018 (Команда 2018) | 2018 World Cup Song
-Media
-true
-
 
 **Post number:**
 - API post stream seems to give me the newest 100 posts
