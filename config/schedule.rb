@@ -21,6 +21,6 @@
 
 set :output, '/Users/dtomczyk/Documents/ProgrammingProjects/Goal_Highlights/log/cron_log.log'
 
-every 1.hour do
+every :hour do
   rake "scan_new"
 end

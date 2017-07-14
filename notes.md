@@ -1,4 +1,6 @@
 ##TODO##
+- Error handle HTTP request timeout errors
+- Add more info to cron log - were any records added? if so, how many?
 - last team id checked was 2871
 - paginate highlights page!
 - look into Oembed API to embed videos from just a url
